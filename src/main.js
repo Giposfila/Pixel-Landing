@@ -68,7 +68,7 @@ document.querySelectorAll('[data-book]').forEach(button => button.addEventListen
 document.querySelectorAll('[data-service]').forEach(button => button.addEventListener('click', () => openBooking(Number(button.dataset.service), button)));
 booking.addEventListener('close', () => trigger?.focus());
 const lightbox = document.querySelector('#lightbox');
-document.querySelectorAll('[data-photo]').forEach(button => button.addEventListener('click', () => { trigger = button; lightbox.querySelector('img').src = `/assets/${button.dataset.photo}`; lightbox.querySelector('img').alt = button.querySelector('img').alt; lightbox.querySelector('p').textContent = button.dataset.caption; lightbox.showModal(); }));
+document.querySelectorAll('[data-photo]').forEach(button => button.addEventListener('click', () => { trigger = button; lightbox.querySelector('img').src = `${import.meta.env.BASE_URL}assets/${button.dataset.photo}`; lightbox.querySelector('img').alt = button.querySelector('img').alt; lightbox.querySelector('p').textContent = button.dataset.caption; lightbox.showModal(); }));
 lightbox.addEventListener('close', () => trigger?.focus());
 document.querySelectorAll('dialog').forEach(dialog => { dialog.querySelector('.dialog-close').addEventListener('click', () => dialog.close()); dialog.addEventListener('click', event => { if (event.target === dialog) { const r = dialog.getBoundingClientRect(); if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) dialog.close(); } }); });
 

@@ -1,7 +1,8 @@
 import { defineConfig } from 'vite';
 import { fileURLToPath } from 'node:url';
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
+  base: mode === 'production' ? '/Pixel-Landing/' : '/',
   build: {
     rollupOptions: {
       input: {
@@ -10,4 +11,4 @@ export default defineConfig({
       },
     },
   },
-});
+}));
